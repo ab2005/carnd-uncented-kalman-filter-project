@@ -8,11 +8,7 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using std::vector;
 
-/**
- * Initializes Unscented Kalman filter
- */
 UKF::UKF() {
-    
     is_initialized_  = false;
     
     // if this is false, laser measurements will be ignored (except during init)
@@ -31,10 +27,10 @@ UKF::UKF() {
     Xsig_pred_ = MatrixXd(5, 15);
     
     // Process noise standard deviation longitudinal acceleration in m/s^2
-    std_a_ = 1.0;//30;
+    std_a_ = 1.0;
     
     // Process noise standard deviation yaw acceleration in rad/s^2
-    std_yawdd_ = 0.6;//30;
+    std_yawdd_ = 0.6;
     
     // Laser measurement noise standard deviation position1 in m
     std_laspx_ = 0.15;
@@ -223,7 +219,6 @@ void UKF::PredictSigmaPoints(double delta_t) {
 }
 
 void UKF::PredictMeanAndCovariance(void) {
-    
     //predicted state mean
     x_.fill(0.0);
     for (int i = 0; i < 2 * n_aug_ + 1; i++) {  //iterate over sigma points
