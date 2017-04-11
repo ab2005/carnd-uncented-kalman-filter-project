@@ -17,12 +17,8 @@ cd build && cmake .. && make
 ```
     -- Configuring done
     -- Generating done
-    -- Build files have been written to: /Users/ab/SDC/CarND-Unscented-Kalman-Filter-Project-master/build
-    Scanning dependencies of target UnscentedKF
-    [ 20%] Building CXX object CMakeFiles/UnscentedKF.dir/src/tools.cpp.o
-    [ 40%] Linking CXX executable UnscentedKF
+    -- Build files have been written to: /Users/ab/SDC/CarND-Unscented-Kalman-Filter-Project/build
     [100%] Built target UnscentedKF
-
 
 ## Execution and Visualization
 
@@ -85,12 +81,12 @@ def plot(table_ekf_output):
 DIR=/Users/ab/SDC/CarND-Unscented-Kalman-Filter-Project-master/
 $DIR/build/UnscentedKF $DIR/data/sample-laser-radar-measurement-data-1.txt $DIR/data/output-1.txt
 ```
-`Accuracy - RMSE:
- 0.076647
- 0.0831234
- 0.594126
- 0.579288
-`
+    Accuracy - RMSE:
+    0.0659267
+    0.0661783
+    0.587806
+    0.564045
+
 ![Image](./Unknown-1)
 ```python
 plot(pd.read_table('data/output-1.txt', sep='\t', header=None, names=my_cols, lineterminator='\n'))
@@ -100,12 +96,11 @@ plot(pd.read_table('data/output-1.txt', sep='\t', header=None, names=my_cols, li
 DIR=/Users/ab/SDC/CarND-Unscented-Kalman-Filter-Project-master/
 $DIR/build/UnscentedKF $DIR/data/sample-laser-radar-measurement-data-2.txt $DIR/data/output-2.txt
 ```
-`Accuracy - RMSE:
- 0.196052
- 0.189331
- 0.436046
- 0.523499
-`
+    Accuracy - RMSE:
+    0.209469
+    0.201476
+    0.445542
+    0.578738
 ```python
 plot(pd.read_table('data/output-2.txt', sep='\t', header=None, names=my_cols, lineterminator='\n'))
 ```
