@@ -116,6 +116,12 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     }
 
     double dt = (meas_package.timestamp_ - time_us_)  / 1000000.0;;
+    
+    // Dividing large time steps into smaller prediction intervals helps to maintain numerical stability.
+    while (dt > 0.1){
+        Prediction(0.05);
+        dt -= 0.05;
+    }
 
     Prediction(dt);
 
